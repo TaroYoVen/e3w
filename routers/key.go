@@ -1,7 +1,6 @@
 package routers
 
 import (
-	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/xiaowei520/e3ch"
 )
@@ -24,7 +23,6 @@ func getKeyHandler(c *gin.Context, client *client.EtcdHRCHYClient) (interface{},
 	_, list := c.GetQuery("list")
 	key := c.Param("key")
 
-	fmt.Println("now  i need")
 	if list {
 		nodes, err := client.List(key)
 		if err != nil {
