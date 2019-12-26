@@ -5,7 +5,7 @@ etcd v3 Web UI based on [Golang](https://golang.org/) && [React](https://faceboo
 
 supporting hierarchy on etcd v3, based on [e3ch](https://github.com/xiaowei520/e3ch)
 
-## Quick Start
+## 快速开始
 
 ```
 git clone https://github.com/xiaowei520/e3w.git
@@ -38,16 +38,16 @@ SETTING
 
 ![](./images/setting.png)
 
-## Usage
+## 使用方式
 
-1.Fetch the project `go get github.com/xiaowei520/e3w`
+1.拉取项目 `go get github.com/xiaowei520/e3w`
 
 
-2.frontend
+2.前端构建命令
 
 ```
 cd static
-
+//安装cnpm加速node依赖安装速度
 npm install -g cnpm --registry=https://registry.npm.taobao.org
 
 npm install
@@ -55,15 +55,15 @@ npm install
 npm run publish
 ```
 
-3.backend
+3.后端构建
 
-a. Start etcd, such as [goreman](https://go.etcd.io/etcd/#running-a-local-etcd-cluster)
+a. 启动etcd, 比如 [goreman](https://go.etcd.io/etcd/#running-a-local-etcd-cluster)
 
-b. Install packages by [dep](https://github.com/golang/dep) if needed, `dep ensure`
+b. 安装go dep  [dep](https://github.com/golang/dep) 如果需要的话~ `dep ensure`
 
-c. Edit conf/config.default.ini if needed, `go build && ./e3w`
+c. 编辑 conf/config.default.ini .配置你自己的服务参数, `go build && ./e3w`
 
-d. For auth:
+d. 权限:
 
 ```
 ETCDCTL_API=3 etcdctl auth enable
@@ -72,9 +72,6 @@ ETCDCTL_API=3 etcdctl auth enable
 # you could set your username and password in SETTING page
 ```
 
-4.build image
-
-Install dependencies in 3.b, then run `docker build -t xiaowei520/e3w .`
 
 ## Notice
 
