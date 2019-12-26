@@ -38,7 +38,6 @@ func main() {
 		panic(err)
 	}
 
-	fmt.Println("11")
 	client, err := e3ch.NewE3chClient(config)
 	if err != nil {
 		panic(err)
