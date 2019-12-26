@@ -1,8 +1,9 @@
 package routers
 
 import (
+	"fmt"
 	"github.com/gin-gonic/gin"
-	"github.com/soyking/e3ch"
+	"github.com/xiaowei520/e3ch"
 )
 
 type Node struct {
@@ -23,13 +24,14 @@ func getKeyHandler(c *gin.Context, client *client.EtcdHRCHYClient) (interface{},
 	_, list := c.GetQuery("list")
 	key := c.Param("key")
 
+	fmt.Println("now  i need")
 	if list {
 		nodes, err := client.List(key)
 		if err != nil {
 			return nil, err
 		}
 
-		realNodes := []*Node{}
+		var realNodes []*Node
 		for _, node := range nodes {
 			realNodes = append(realNodes, parseNode(node))
 		}

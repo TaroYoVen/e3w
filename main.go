@@ -3,11 +3,11 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/coreos/etcd/version"
 	"github.com/gin-gonic/gin"
-	"github.com/soyking/e3w/conf"
-	"github.com/soyking/e3w/e3ch"
-	"github.com/soyking/e3w/routers"
+	"github.com/xiaowei520/e3w/conf"
+	"github.com/xiaowei520/e3w/e3ch"
+	"github.com/xiaowei520/e3w/routers"
+	"go.etcd.io/etcd/version"
 	"os"
 )
 
@@ -38,6 +38,7 @@ func main() {
 		panic(err)
 	}
 
+	fmt.Println("11")
 	client, err := e3ch.NewE3chClient(config)
 	if err != nil {
 		panic(err)
@@ -46,5 +47,5 @@ func main() {
 	router := gin.Default()
 	router.UseRawPath = true
 	routers.InitRouters(router, config, client)
-	router.Run(":" + config.Port)
+	_ = router.Run(":" + config.Port)
 }
